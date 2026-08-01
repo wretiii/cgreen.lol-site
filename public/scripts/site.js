@@ -4,6 +4,10 @@
   const mobileToggle = document.querySelector('[data-mobile-toggle]');
   const menu = document.querySelector('[data-mobile-menu]');
 
+  document.querySelectorAll('[data-current-year]').forEach((year) => {
+    year.textContent = String(new Date().getFullYear());
+  });
+
   const updateThemeLabel = () => {
     if (!themeToggle) return;
     const isLight = root.dataset.theme === 'light';
