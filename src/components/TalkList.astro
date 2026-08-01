@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { talks: CollectionEntry<'talks'>[]; }
+const { talks } = Astro.props;
+---
+<div class="table-wrap">
+  <table class="talk-table">
+    <thead><tr><th>Title</th><th>Event</th><th>Year</th></tr></thead>
+    <tbody>
+      {talks.map((talk) => {
+        const slug = talk.id.replace(/\.md$/, '');
+        return <tr>
+          <td><a href={`/talks/${slug}/`}>{talk.data.title}</a></td>
+          <td>{talk.data.event ?? 'Conference'}</td>
+          <td>{talk.data.date.getUTCFullYear()}</td>
+        </tr>;
+      })}
+    </tbody>
+  </table>
+</div>

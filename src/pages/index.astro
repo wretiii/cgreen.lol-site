@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import TalkList from '../components/TalkList.astro';
+import { getCollection } from 'astro:content';
+
+const talks = (await getCollection('talks'))
+  .filter((talk) => !talk.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<Base>
+  <Header />
+  <main class="container site-main">
+    <header class="profile-header">
+      <h1>Chris Green</h1>
+      <p>I lead governance, risk, compliance, and penetration testing consulting teams. My work connects technical security practice with organizational risk, helping teams understand their exposure and make sound decisions.</p>
+    </header>
+
+    <section class="index-section">
+      <div class="section-header"><span>01</span><h2>Current work</h2></div>
+      <div class="entry-list">
+        <article>
+          <div><h3>GRC & Security Leadership</h3><p>Consulting team leadership</p></div>
+          <span>Present</span>
+          <p>Security program strategy, risk communication, policy modernization, control assessment, and audit readiness.</p>
+        </article>
+        <article>
+          <div><h3>Penetration Testing</h3><p>Offensive security practice</p></div>
+          <span>Present</span>
+          <p>Technical testing focused on verified findings, root cause, practical remediation, and meaningful business risk.</p>
+        </article>
+        <article>
+          <div><h3>Conference Speaking</h3><p>Security and compliance</p></div>
+          <span>Ongoing</span>
+          <p>Briefings on regulatory change, real-world security practice, artificial intelligence, privacy, and zero trust.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="index-section">
+      <div class="section-header"><span>02</span><h2>Areas of practice</h2></div>
+      <div class="topic-grid">
+        <div><h3>Governance & risk</h3><p>Program design, risk assessment, policy, controls, and executive reporting.</p></div>
+        <div><h3>Offensive security</h3><p>Network, application, cloud, and adversary-focused testing.</p></div>
+        <div><h3>Regulated environments</h3><p>CJIS, HIPAA, PCI DSS, CMMC, GovRAMP, and privacy.</p></div>
+        <div><h3>Security architecture</h3><p>Zero trust, segmentation, identity, and control validation.</p></div>
+      </div>
+    </section>
+
+    <section class="index-section">
+      <div class="section-header"><span>03</span><h2>Conference talks</h2></div>
+      <TalkList talks={talks} />
+      <p class="section-more"><a href="/talks/">Talk details and resources →</a></p>
+    </section>
+
+    <section class="index-section">
+      <div class="section-header"><span>04</span><h2>Certifications</h2></div>
+      <dl class="cert-list">
+        <div><dt>CISSP</dt><dd>Certified Information Systems Security Professional</dd></div>
+        <div><dt>OSCP</dt><dd>Offensive Security Certified Professional</dd></div>
+        <div><dt>CISA</dt><dd>Certified Information Systems Auditor</dd></div>
+        <div><dt>CRISC</dt><dd>Certified in Risk and Information Systems Control</dd></div>
+        <div><dt>QSA / PCIP</dt><dd>Payment Card Industry security and compliance</dd></div>
+        <div><dt>CMMC RP</dt><dd>Cybersecurity Maturity Model Certification Registered Practitioner</dd></div>
+      </dl>
+    </section>
+
+    <section class="index-section contact-section">
+      <div class="section-header"><span>05</span><h2>Contact</h2></div>
+      <p><a href="mailto:x63x67@proton.me">Email</a> · <a href="https://www.linkedin.com/in/christophermgreen/" target="_blank" rel="noreferrer">LinkedIn</a> · <a href="https://github.com/wretiii" target="_blank" rel="noreferrer">GitHub</a></p>
+    </section>
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import TalkList from '../../components/TalkList.astro';
+import { getCollection } from 'astro:content';
+
+const talks = (await getCollection('talks'))
+  .filter((talk) => !talk.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<Base title="Talks | Chris Green" description="Conference sessions, practical guidance, and resources from Chris Green on cybersecurity and compliance.">
+  <Header />
+  <main>
+    <section class="page-hero container">
+      <p class="eyebrow">Speaking & resources</p>
+      <h1>Talks</h1>
+      <p>Conference sessions, practical guidance, and resources for navigating security and compliance.</p>
+    </section>
+    <section class="section container listing-section"><TalkList talks={talks} /></section>
+  </main>
+  <Footer />
+</Base>

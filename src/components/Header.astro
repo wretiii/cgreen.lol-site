@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+
+const hasPublishedPosts = (await getCollection('blog')).some((post) => !post.data.draft);
+const links = [
+  { href: '/', label: 'Index' },
+  { href: '/talks/', label: 'Talks' },
+  ...(hasPublishedPosts ? [{ href: '/blog/', label: 'Blog' }] : []),
+  { href: '/about/', label: 'About' },
+];
+const currentPath = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="container nav">
+    <nav class="nav-links" aria-label="Main navigation">
+      {links.map((link) => (
+        <a href={link.href} aria-current={currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) ? 'page' : undefined}>{link.label}</a>
+      ))}
+    </nav>
+    <div class="nav-tools">
+      <a href="mailto:x63x67@proton.me">Contact</a>
+      <button data-theme-toggle type="button" aria-label="Switch to light theme">Light</button>
+      <button class="mobile-toggle" data-mobile-toggle type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="container mobile-nav" data-mobile-menu aria-label="Mobile navigation">
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    <a href="mailto:x63x67@proton.me">Contact</a>
+  </nav>
+</header>
