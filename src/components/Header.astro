@@ -3,10 +3,10 @@ import { getCollection } from 'astro:content';
 
 const hasPublishedPosts = (await getCollection('blog')).some((post) => !post.data.draft);
 const links = [
-  { href: '/', label: 'Index' },
-  { href: '/talks/', label: 'Talks' },
-  ...(hasPublishedPosts ? [{ href: '/blog/', label: 'Blog' }] : []),
-  { href: '/about/', label: 'About' },
+  { href: '/', label: '/root' },
+  { href: '/talks/', label: 'talks' },
+  ...(hasPublishedPosts ? [{ href: '/blog/', label: 'blog' }] : []),
+  { href: '/about/', label: 'about' },
 ];
 const currentPath = Astro.url.pathname;
 ---
@@ -18,13 +18,13 @@ const currentPath = Astro.url.pathname;
       ))}
     </nav>
     <div class="nav-tools">
-      <a href="mailto:x63x67@proton.me">Contact</a>
+      <a href="mailto:x63x67@proton.me">contact</a>
       <button data-theme-toggle type="button" aria-label="Switch to light theme">Light</button>
       <button class="mobile-toggle" data-mobile-toggle type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </div>
   <nav class="container mobile-nav" data-mobile-menu aria-label="Mobile navigation">
     {links.map((link) => <a href={link.href}>{link.label}</a>)}
-    <a href="mailto:x63x67@proton.me">Contact</a>
+    <a href="mailto:x63x67@proton.me">contact</a>
   </nav>
 </header>
