@@ -18,6 +18,4 @@ resources:
     url: "https://www.pcisecuritystandards.org/document_library"
 ---
 
-This talk covered updates on CMMC, GLBA, PCI, TSA, generative AI, and security best practices, with penetration testing and zero-trust strategies.
-
 &nbsp;

@@ -12,8 +12,6 @@ topics:
 
 ---
 
-This talk covered updates on CMMC, GLBA, PCI, generative AI, and security best practices, with penetration testing and zero-trust strategies.
-
 &nbsp;
 
 # **Related Structured Blog Topics**

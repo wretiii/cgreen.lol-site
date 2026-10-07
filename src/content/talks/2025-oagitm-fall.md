@@ -13,8 +13,6 @@ topics:
 
 ---
 
-This talk covered updates on CJIS, HIPAA, Privacy, GovRAMP, PCI, and security best practices, with penetration testing and zero-trust strategies.
-
 &nbsp;
 
 # **CISA Guidance**
