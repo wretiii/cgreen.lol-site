@@ -7,6 +7,15 @@ title: "Talks"
 &nbsp;
 
 
+**[Oregon Cyber Resilience Summit](/talks/2026-ocrs-tprm/)** – 07 October 2026  
+*Vendor Risk Management on a Budget: Free Tools, A Bad Attitude, and Everything Vendors Forget to Mention*
+
+<p style="margin-left: 2em;">
+Walked through building a third-party risk program without a budget: reusing assessments vendors have already completed, mining free government registries and guidance, and running passive outside-in reconnaissance against a vendor’s public footprint. Closed with a 30-minute recon playbook and an honest look at where a free program stops being enough.
+</p>
+
+&nbsp;
+
 **[OAGITM 2025 Fall Conference](/talks/2025-oagitm-fall/)** – 23 September 2025  
 *Securing the Mission: Cybersecurity and Compliance For 2025*
 
